@@ -1,0 +1,66 @@
+component TPS65988DKRSHR:
+    # component TPS65988DKRSHR
+    footprint = "VQFN-56_L7.0-W7.0-P0.40-TL-EP_TI_RSH"
+    lcsc_id = "C2868017"
+    mpn = "C2868017"
+    # pins
+    signal PP_HV2   ~ pin 1
+    PP_HV2          ~ pin 2
+    signal VBUS2 ~ pin 3
+    VBUS2 ~ pin 4
+    signal VIN_3V3 ~ pin 5
+    signal ADCIN1 ~ pin 6
+    signal DRAIN2 ~ pin 7
+    signal DRAIN1 ~ pin 8
+    signal LDO_3V3 ~ pin 9
+    signal ADCIN2 ~ pin 10
+    signal PP_HV1 ~ pin 11
+    PP_HV1 ~ pin 12
+    signal VBUS1 ~ pin 13
+    VBUS1 ~ pin 14
+    DRAIN1 ~ pin 15
+    signal GPIO0 ~ pin 16
+    signal GPIO1 ~ pin 17
+    signal GPIO2 ~ pin 18
+    DRAIN1 ~ pin 19
+    signal GND ~ pin 20
+    signal I2C3_SCL_lparen_GPIO5_rparen ~ pin 21
+    signal I2C3_SDA_lparen_GPIO6_rparen ~ pin 22
+    signal I2C3_IRQ_lparen_GPIO7_rparen ~ pin 23
+    signal C1_CC1 ~ pin 24
+    signal PP1_CABLE ~ pin 25
+    signal C1_CC2 ~ pin 26
+    signal I2C1_SCL ~ pin 27
+    signal I2C1_SDA ~ pin 28
+    signal I2C1_IRQ ~ pin 29
+    signal HPD1_lparen_GPIO3_rparen ~ pin 30
+    signal HPD2_lparen_GPIO4_rparen ~ pin 31
+    signal I2C2_SCL ~ pin 32
+    signal I2C2_SDA ~ pin 33
+    signal I2C2_IRQ ~ pin 34
+    signal LDO_1V8 ~ pin 35
+    signal SPI_POCI_lparen_GPIO8_rparen ~ pin 36
+    signal SPI_PICO_lparen_GPIO9_rparen ~ pin 37
+    signal SPI_CLK_lparen_GPIO10_rparen ~ pin 38
+    signal SPI_CS_lparen_GPIO11_rparen ~ pin 39
+    signal GPIO12 ~ pin 40
+    signal GPIO13 ~ pin 41
+    signal GPIO14_lparen_PWM_rparen ~ pin 42
+    signal GPIO15_lparen_PWM_rparen ~ pin 43
+    signal HRESET ~ pin 44
+    signal C2_CC1 ~ pin 45
+    signal PP2_CABLE ~ pin 46
+    signal C2_CC2 ~ pin 47
+    signal GPIO16_lparen_PEXT1_rparen ~ pin 48
+    signal GPIO17_lparen_PEXT2_rparen ~ pin 49
+    signal C1_USB_P_lparen_GPIO18_rparen ~ pin 50
+    GND ~ pin 51
+    DRAIN2 ~ pin 52
+    signal C1_USB_N_lparen_GPIO19_rparen ~ pin 53
+    signal C2_USB_P_lparen_GPIO20_rparen ~ pin 54
+    signal C2_USB_N_lparen_GPIO21_rparen ~ pin 55
+    DRAIN2 ~ pin 56
+    DRAIN2 ~ pin 57
+    DRAIN1 ~ pin 58
+    GND ~ pin 59
+

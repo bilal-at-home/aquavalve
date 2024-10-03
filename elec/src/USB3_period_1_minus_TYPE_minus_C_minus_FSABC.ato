@@ -1,0 +1,35 @@
+component USB3_period_1_minus_TYPE_minus_C_minus_FSABC:
+    # component USB3_period_1_minus_TYPE_minus_C_minus_FSABC
+    footprint = "USB-3.1-SMD_USB3.1-TYPE-C-FSABC"
+    lcsc_id = "C319140"
+    mpn = "C319140"
+    # pins
+    signal GND ~ pin A1
+    signal SSRXN2 ~ pin A2
+    signal SSRXP2 ~ pin A3
+    GND ~ pin A4
+    signal SSTXP1 ~ pin A5
+    signal SSTXN1 ~ pin A6
+    signal VBUS ~ pin A7
+    signal CC1 ~ pin A8
+    signal DP1 ~ pin A9
+    signal DN1 ~ pin A10
+    signal SBU1 ~ pin A11
+    VBUS ~ pin A12
+    GND ~ pin B11
+    signal SSRXN1 ~ pin B12
+    signal SSRXP1 ~ pin B10
+    GND ~ pin B9
+    signal SSTXP2 ~ pin B8
+    signal SSTXN2 ~ pin B7
+    VBUS ~ pin B6
+    signal CC2 ~ pin B5
+    signal DP2 ~ pin B4
+    signal DN2 ~ pin B3
+    signal SBU2 ~ pin B2
+    VBUS ~ pin B1
+    signal SHELL ~ pin SHELL
+    SHELL ~ pin SHELL
+    SHELL ~ pin SHELL
+    SHELL ~ pin SHELL
+

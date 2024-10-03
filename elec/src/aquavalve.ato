@@ -1,2 +1,10 @@
+import TPS65988DKRSHR from "TPS65988DKRSHR.ato"
+import USB3_period_1_minus_TYPE_minus_C_minus_FSABC from "USB3_period_1_minus_TYPE_minus_C_minus_FSABC.ato"
+import AVR64DU32T from "AVR64DU32T-I-RXB.ato"
+
 module Aquavalve:
+    usbc_pd = new TPS65988DKRSHR
+    usbc_con1 = new USB3_period_1_minus_TYPE_minus_C_minus_FSABC
+    usbc_con2 = new USB3_period_1_minus_TYPE_minus_C_minus_FSABC
+    mcu = new AVR64DU32T
     signal gnd

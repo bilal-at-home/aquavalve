@@ -1,0 +1,38 @@
+component AVR64DU32T:
+    # component AVR64DU32T-I/RXB
+    footprint = "VQFN-32-1EP_5x5mm_P0.5mm_EP3.1x3.1mm_ThermalVias"
+    mpn = "AVR64DU32T-I-RXB"
+    # pins
+    signal PA3      ~ pin 1
+    signal PA4      ~ pin 2
+    signal PA5      ~ pin 3
+    signal PA6      ~ pin 4
+    signal PA7      ~ pin 5
+    signal VUSB     ~ pin 6
+    signal USB_DM   ~ pin 7
+    signal USB_DP   ~ pin 8 
+    signal PC3      ~ pin 9
+    signal PD0      ~ pin 10
+    signal PD1      ~ pin 11
+    signal PD2      ~ pin 12
+    signal PD3      ~ pin 13
+    signal PD4      ~ pin 14
+    signal PD5      ~ pin 15
+    signal PD6      ~ pin 16
+    signal PD7      ~ pin 17
+    signal VDD      ~ pin 18
+    signal GND      ~ pin 19
+    signal PF0      ~ pin 20 #XTAL32k1
+    signal PF1      ~ pin 21 #XTAL32k2
+    signal PF2      ~ pin 22
+    signal PF3      ~ pin 23
+    signal PF4      ~ pin 24
+    signal PF5      ~ pin 25
+    signal PF6      ~ pin 26 #nRESET
+    signal PF7      ~ pin 27 #UPDI
+    VDD             ~ pin 28
+    GND             ~ pin 29
+    signal PA0      ~ pin 30 #XTALHF1
+    signal PA1      ~ pin 31 #XTALHF2
+    signal PA2      ~ pin 32 
+    GND             ~ pin 33 #Exposed Pad
