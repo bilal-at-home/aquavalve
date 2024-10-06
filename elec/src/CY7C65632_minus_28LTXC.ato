@@ -1,0 +1,36 @@
+component CY7C65632_minus_28LTXC:
+    # component CY7C65632_minus_28LTXC
+    footprint = "QFN-28_L5.0-W5.0-P0.50-TL-EP3.5"
+    lcsc_id = "C466889"
+    mpn = "C466889"
+    # pins
+    signal D_minus ~ pin 1
+    signal D_plus ~ pin 2
+    signal DD_minus_lparen_1_rparen ~ pin 3
+    signal DD_plus_lparen_1_rparen ~ pin 4
+    signal VCC_A ~ pin 5
+    signal DD_minus_lparen_2_rparen ~ pin 6
+    signal DD_plus_lparen_2_rparen ~ pin 7
+    signal RREF ~ pin 8
+    VCC_A ~ pin 9
+    signal XIN ~ pin 10
+    signal XOUT ~ pin 11
+    signal DD_minus_lparen_3_rparen ~ pin 12
+    signal DD_plus_lparen_3_rparen ~ pin 13
+    VCC_A ~ pin 14
+    signal DD_minus_lparen_4_rparen ~ pin 15
+    signal DD_plus_lparen_4_rparen ~ pin 16
+    signal RESET_hash ~ pin 17
+    signal TEST_slash_I2C_SCL ~ pin 18
+    signal OVR_hash_lparen_4 ~ pin 19
+    signal OVR_hash_lparen_3_rparen ~ pin 20
+    signal VCC_D ~ pin 21
+    signal SELFPWR ~ pin 22
+    signal GANG ~ pin 23
+    signal OVR_hash_lparen_2_rparen ~ pin 24
+    signal OVR_hash_lparen_1_rparen ~ pin 25
+    signal PWR_hash_slash_I2C_SDA ~ pin 26
+    signal VCC ~ pin 27
+    signal VREG ~ pin 28
+    signal PAD ~ pin 29
+

@@ -17,13 +17,16 @@ from "generics/interfaces.ato" import Power
 from "generics/capacitors.ato" import Capacitor
 from "generics/resistors.ato" import Resistor 
 import PTS830GG140SMTRLFS from "PTS830GG140SMTRLFS.ato"
+import _1125_minus_1104G0S116C001 from "_1125_minus_1104G0S116C001.ato"
+import SC32S_minus_7PF20PPM from "SC32S_minus_7PF20PPM.ato"
+import CY7C65632_minus_28LTXC from "CY7C65632_minus_28LTXC.ato"
+
 
 module MCU: 
-    power = new Power
+    power_5v = new Power
+    power_3v3 = new Power
     mcu = new AVR64DU32T
-    debug = new Connector4Pin
-    debug.footprint = "Package:PinSocket_1x04_P2.54mm_Vertical"
-    debug.mpn = "61300411121"
+    debug = new _1125_minus_1104G0S116C001
     led = new TRICOLOR_LED
     reset_sw = new PTS830GG140SMTRLFS
     
@@ -32,6 +35,7 @@ module MCU:
     cmcu_dc_2 = new Capacitor
     cmcu_dc_3 = new Capacitor
     cmcu_dc_4 = new Capacitor
+    cusb_dc_1 = new Capacitor
     cmcu_dc_1.value = 1uF +/- 20%
     cmcu_dc_1.package = "0402"
     cmcu_dc_2.value = 100nF +/- 20%
@@ -40,17 +44,26 @@ module MCU:
     cmcu_dc_3.package = "0402"
     cmcu_dc_4.value = 100nF +/- 20%
     cmcu_dc_4.package = "0402"
+    cusb_dc_1.value = 470nF +/- 20%
+    cusb_dc_1.package = "0402"
 
     # Connect up the power
-    power ~ led.Power 
-    power.vcc ~ mcu.VDD
-    power.gnd ~ mcu.GND
-    power ~ cmcu_dc_1.power
-    power ~ cmcu_dc_2.power
-    power ~ cmcu_dc_3.power
-    signal gnd ~ power.gnd
+    power_5v ~ led.Power 
+    power_5v.vcc ~ mcu.VDD
+    power_5v.gnd ~ mcu.GND
+    power_5v ~ cmcu_dc_1.power
+    power_5v ~ cmcu_dc_2.power
+    power_5v ~ cmcu_dc_3.power
+    signal gnd ~ power_5v.gnd
+    signal vcc ~ power_5v.vcc
+    cusb_dc_1.power.vcc ~ mcu.VUSB
+    cusb_dc_1.power.gnd ~ gnd
+    # Using 5V for vcc and gnd 
+    power_3v3.vcc ~ mcu.VUSB
+    power_3v3.gnd ~ gnd
 
     # Connect up reset button
+    signal reset_n ~ mcu.PF6
     rmcu_reset = new Resistor
     rmcu_reset.value = 1 kohm +/- 10%
     rmcu_reset.package = "0402"
@@ -59,12 +72,40 @@ module MCU:
     cmcu_reset.voltage = "10V"
     cmcu_reset.package = "0402"
     cmcu_reset.p1 ~ gnd
-    cmcu_reset.p2 ~ mcu.PF6
-    rmcu_reset.p1 ~ mcu.PF6
+    cmcu_reset.p2 ~ reset_n
+    rmcu_reset.p1 ~ reset_n
     rmcu_reset.p2 ~ reset_sw._1
     reset_sw._1   ~ reset_sw._2
     reset_sw._3   ~ reset_sw._4
     reset_sw._3   ~ gnd
+
+    # Connect up debug header
+    reset_n ~ debug._1
+    vcc ~ debug._2
+    gnd ~ debug._3
+    mcu.PF7 ~ debug._4
+
+    # Connect LF crystal 
+    xtal_32 = new SC32S_minus_7PF20PPM
+    xtal_c1 = new Capacitor
+    xtal_c2 = new Capacitor
+    xtal_r1 = new Resistor
+    xtal_c1.package = "0402"
+    xtal_c2.package = "0402"
+    xtal_r1.package = "0402"
+    xtal_c1.value = 8pF +/- 20%
+    xtal_c1.dielectric = "C0G"
+    xtal_c2.value = 8pF +/- 20%
+    xtal_c2.dielectric = "C0G"
+    xtal_r1.value = 10 ohm +/- 20%
+    
+    xtal_c1.p1 ~ gnd
+    xtal_c2.p1 ~ gnd
+    xtal_32._1 ~ xtal_c1.p2
+    xtal_32._2 ~ xtal_c2.p2
+    xtal_32._1 ~ mcu.PF0
+    xtal_32._2 ~ xtal_r1.p1
+    mcu.PF1 ~ xtal_r1.p2
 
 module USBC_PD:
     cntl = new TPS65988DKRSHR
@@ -74,6 +115,10 @@ module USBC_PD:
 
 module USB_2:
     hub = new USB2422_slash_MJ
+    power_3v3 = new Power
+    power_3v3.vcc ~ hub.VDD33
+    power_3v3.gnd ~ hub.EP 
+
     #usb_mux1 = new TMUXHS221NKGR
     #usb_mux2 = new TMUXHS221NKGR
     #usb_mux3 = new TMUXHS221NKGR

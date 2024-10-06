@@ -1,0 +1,9 @@
+component SC32S_minus_7PF20PPM:
+    # component SC32S_minus_7PF20PPM
+    footprint = "CRYSTAL-SMD_L3.2-W1.5-1"
+    lcsc_id = "C5452100"
+    mpn = "C5452100"
+    # pins
+    signal _1 ~ pin 1
+    signal _2 ~ pin 2
+

@@ -1,0 +1,11 @@
+component _1125_minus_1104G0S116C001:
+    # component _1125_minus_1104G0S116C001
+    footprint = "HDR-TH_4P-P2.54-V-M-1"
+    lcsc_id = "C920779"
+    mpn = "C920779"
+    # pins
+    signal _1 ~ pin 1
+    signal _2 ~ pin 2
+    signal _3 ~ pin 3
+    signal _4 ~ pin 4
+
