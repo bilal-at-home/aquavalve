@@ -19,8 +19,27 @@ module TRICOLOR_LED:
     RR = new Resistor
     C = new Capacitor
     LED = new _155124M173200
-    Power.gnd ~ C.p1
-    Power.vcc ~ C.p2
+    
+    R_current = 2mA to 6mA
+    G_current = 1mA to 3.3mA
+    B_current = 11.7mA to 16.2mA
+    vcc = 5V +/- 0.1V
+    R_vf = 1.85V
+    G_vf = 2.5V
+    B_vf = 3V
+
+    RB.package = "0402"
+    RG.package = "0402"
+    RR.package = "0402"
+    C.package = "0402"
+    C.value = 100nF +/-10%
+    #CAP not needed but should be checked what the autopicker is picking here 
+    
+    assert (vcc - R_vf) / RR.value within R_current
+    assert (vcc - G_vf) / RG.value within G_current
+    assert (vcc - B_vf) / RB.value within B_current
+
+    Power ~ C.power
     Power.vcc ~ LED.ANODE
     RB.p1 ~ LED.B_CATHODE
     RG.p1 ~ LED.G_CATHODE
@@ -28,3 +47,5 @@ module TRICOLOR_LED:
     signal R ~ RR.p2
     signal B ~ RB.p2
     signal G ~ RG.p2
+
+    

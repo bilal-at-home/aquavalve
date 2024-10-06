@@ -1,0 +1,11 @@
+component PTS830GG140SMTRLFS:
+    # component PTS830GG140SMTRLFS
+    footprint = "KEY-SMD_4P-L3.1-W2.6_PTS830GG140SMTRLFS"
+    lcsc_id = "C221902"
+    mpn = "PTS830GG140SMTRLFS"
+    # pins
+    signal _1 ~ pin 1
+    signal _2 ~ pin 2
+    signal _3 ~ pin 3
+    signal _4 ~ pin 4
+
