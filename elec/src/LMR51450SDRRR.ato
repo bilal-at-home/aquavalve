@@ -1,0 +1,20 @@
+component LMR51450SDRRR:
+    # component LMR51450SDRRR
+    footprint = "WSON-12_L3.0-W3.0-P0.50-TL-EP-2"
+    lcsc_id = "C6890985"
+    mpn = "C6890985"
+    # pins
+    signal SW ~ pin 1
+    SW ~ pin 2
+    SW ~ pin 3
+    signal BOOT ~ pin 4
+    signal PG ~ pin 5
+    signal RT ~ pin 6
+    signal FB ~ pin 7
+    signal AGND ~ pin 8
+    signal EN ~ pin 9
+    signal VIN ~ pin 10
+    VIN ~ pin 11
+    VIN ~ pin 12
+    signal EP ~ pin 13
+

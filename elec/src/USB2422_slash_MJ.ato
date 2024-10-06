@@ -1,0 +1,32 @@
+component USB2422_slash_MJ:
+    # component USB2422_slash_MJ
+    footprint = "QFN-24_L4.0-W4.0-P0.50-BL-EP2.6"
+    lcsc_id = "C633330"
+    mpn = "C633330"
+    # pins
+    signal VDD33 ~ pin 1
+    signal USBDM_DN1_slash_PRT_DIS_M1 ~ pin 2
+    signal USBDP_DN1_slash_PRT_DIS_P1 ~ pin 3
+    signal USBDM_DN2_slash_PRT_DIS_M2 ~ pin 4
+    signal USBDP_DN2_slash_PRT_DIS_P2 ~ pin 5
+    signal NC ~ pin 6
+    signal PRTPWR1_slash_lparen_BC_EN1_rparen ~ pin 7
+    signal OCS1_N ~ pin 8
+    VDD33 ~ pin 9
+    signal CRFILT ~ pin 10
+    signal PRTPWR2 ~ pin 11
+    signal OCS2_N ~ pin 12
+    signal SMBDATA_slash_NON_REM1 ~ pin 13
+    signal SMBCLK_slash_CFG_SEL0 ~ pin 14
+    signal RESET_N ~ pin 15
+    signal VBUS_DET ~ pin 16
+    signal SUSP_IND_slash_LOCAL_PWR_slash_lparen_NON_REM0_rparen ~ pin 17
+    VDD33 ~ pin 18
+    signal USBDM_UP ~ pin 19
+    signal USBDP_UP ~ pin 20
+    signal XTALOUT_slash_lparen_CLKIN_EN_rparen ~ pin 21
+    signal XTALIN_slash_CLKIN ~ pin 22
+    signal PLLFILT ~ pin 23
+    signal RBIAS ~ pin 24
+    signal EP ~ pin 25
+

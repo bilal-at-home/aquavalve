@@ -1,0 +1,13 @@
+component MP6513LGJ_minus_Z:
+    # component MP6513LGJ_minus_Z
+    footprint = "TSOT-23-6_L2.9-W1.6-P0.95-LS2.8-BR"
+    lcsc_id = "C3681383"
+    mpn = "C3681383"
+    # pins
+    signal IN1 ~ pin 1
+    signal GND ~ pin 2
+    signal IN2 ~ pin 3
+    signal OUT2 ~ pin 4
+    signal VCC ~ pin 5
+    signal OUT1 ~ pin 6
+

@@ -1,10 +1,27 @@
 import TPS65988DKRSHR from "TPS65988DKRSHR.ato"
-import USB3_period_1_minus_TYPE_minus_C_minus_FSABC from "USB3_period_1_minus_TYPE_minus_C_minus_FSABC.ato"
+import _12402012E212A from "_12402012E212A.ato"
 import AVR64DU32T from "AVR64DU32T-I-RXB.ato"
+#import TMUXHS221NKGR from "TMUXHS221NKGR.ato"
+import USB2422_slash_MJ from "USB2422_slash_MJ.ato"
+import LMR51450SDRRR from "LMR51450SDRRR.ato"
+import MP6513LGJ_minus_Z from "MP6513LGJ_minus_Z.ato"
+import INA2180A4IDSGR from "INA2180A4IDSGR.ato"
+import Connector4Pin from "generics/connectors.ato" 
 
 module Aquavalve:
     usbc_pd = new TPS65988DKRSHR
-    usbc_con1 = new USB3_period_1_minus_TYPE_minus_C_minus_FSABC
-    usbc_con2 = new USB3_period_1_minus_TYPE_minus_C_minus_FSABC
+    usbc_con1 = new _12402012E212A
+    usbc_con2 = new _12402012E212A
     mcu = new AVR64DU32T
+    usb_hub = new USB2422_slash_MJ
+    #usb_mux1 = new TMUXHS221NKGR
+    #usb_mux2 = new TMUXHS221NKGR
+    #usb_mux3 = new TMUXHS221NKGR
+    #usb_mux4 = new TMUXHS221NKGR
+    ps = new LMR51450SDRRR
+    valve_drv = new MP6513LGJ_minus_Z
+    cs = new INA2180A4IDSGR
+    debug = new Connector4Pin
+    debug.footprint = "Package:PinSocket_1x04_P2.54mm_Vertical"
+    debug.mpn = "61300411121"
     signal gnd

@@ -1,0 +1,17 @@
+component TMUXHS221NKGR:
+    # component TMUXHS221NKGR
+    footprint = "UQFN-10_L1.8-W1.4-P0.40-BL"
+    lcsc_id = "C7362468"
+    mpn = "C7362468"
+    # pins
+    signal D_plus ~ pin 1
+    signal D_minus ~ pin 2
+    signal GND ~ pin 3
+    signal DA_minus ~ pin 4
+    signal DA_plus ~ pin 5
+    signal DB_minus ~ pin 6
+    signal DB_plus ~ pin 7
+    signal OEn ~ pin 8
+    signal VCC ~ pin 9
+    signal SEL ~ pin 10
+

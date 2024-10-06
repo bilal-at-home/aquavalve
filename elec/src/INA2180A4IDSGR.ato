@@ -1,0 +1,16 @@
+component INA2180A4IDSGR:
+    # component INA2180A4IDSGR
+    footprint = "WSON-8_L2.0-W2.0-P0.50-TL-EP"
+    lcsc_id = "C2871610"
+    mpn = "C2871610"
+    # pins
+    signal VS ~ pin 8
+    signal OUT2 ~ pin 7
+    signal IN_minus_2 ~ pin 6
+    signal IN_plus_2 ~ pin 5
+    signal GND ~ pin 4
+    signal IN_plus_1 ~ pin 3
+    signal IN_minus_1 ~ pin 2
+    signal OUT1 ~ pin 1
+    signal EP ~ pin 9
+
