@@ -7,6 +7,13 @@ import LMR51450SDRRR from "LMR51450SDRRR.ato"
 import MP6513LGJ_minus_Z from "MP6513LGJ_minus_Z.ato"
 import INA2180A4IDSGR from "INA2180A4IDSGR.ato"
 import Connector4Pin from "generics/connectors.ato" 
+import Connector5Pin from "generics/connectors.ato" 
+import Connector3Pin from "generics/connectors.ato" 
+import _155124M173200 from "_155124M173200.ato"
+import ButtonPullup from "generics/buttons.ato" 
+import _009296002202906_C5350089 from "_009296002202906_C5350089.ato"
+import _009296003202906 from "_009296003202906.ato"
+import _009296005202906 from "_009296005202906.ato"
 
 module Aquavalve:
     usbc_pd = new TPS65988DKRSHR
@@ -24,4 +31,8 @@ module Aquavalve:
     debug = new Connector4Pin
     debug.footprint = "Package:PinSocket_1x04_P2.54mm_Vertical"
     debug.mpn = "61300411121"
+    valve_connector = new _009296005202906 
+    flowmeter_connector = new _009296003202906
+    led = new _155124M173200
+    enable_button = new ButtonPullup
     signal gnd

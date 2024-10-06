@@ -1,0 +1,10 @@
+component _009296003202906:
+    # component _009296003202906
+    footprint = "CONN-SMD_009296003202906"
+    mpn = "009296003202906"
+    # pins
+    signal _3 ~ pin 3
+    signal _2 ~ pin 2
+    signal _1 ~ pin 1
+    
+

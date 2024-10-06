@@ -1,0 +1,9 @@
+component _009296002202906_C5350089:
+    # component _009296002202906_C5350089
+    footprint = "CONN-SMD_009296002202906"
+    lcsc_id = "C5350089"
+    mpn = "009296002202906"
+    # pins
+    signal _2 ~ pin 2
+    signal _1 ~ pin 1
+

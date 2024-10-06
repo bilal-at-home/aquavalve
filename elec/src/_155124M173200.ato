@@ -1,0 +1,9 @@
+component _155124M173200:
+    footprint = "WL-SFSW_1204"
+    mpn = "155124M173200"
+
+    # pins
+    signal ANODE        ~ pin 1
+    signal B_CATHODE    ~ pin 2
+    signal G_CATHODE    ~ pin 3
+    signal R_CATHODE    ~ pin 4
