@@ -15,22 +15,30 @@ import _009296002202906_C5350089 from "_009296002202906_C5350089.ato"
 import _009296003202906 from "_009296003202906.ato"
 import _009296005202906 from "_009296005202906.ato"
 
-module Aquavalve:
+module MCU_page: 
+    mcu = new AVR64DU32T
+    debug = new Connector4Pin
+    debug.footprint = "Package:PinSocket_1x04_P2.54mm_Vertical"
+    debug.mpn = "61300411121"
+
+module USB_PD_page:
     usbc_pd = new TPS65988DKRSHR
     usbc_con1 = new _12402012E212A
     usbc_con2 = new _12402012E212A
-    mcu = new AVR64DU32T
+
+module USB_2_page:
     usb_hub = new USB2422_slash_MJ
     #usb_mux1 = new TMUXHS221NKGR
     #usb_mux2 = new TMUXHS221NKGR
     #usb_mux3 = new TMUXHS221NKGR
     #usb_mux4 = new TMUXHS221NKGR
+
+module Power_page:
     ps = new LMR51450SDRRR
+
+module Aquavalve:
     valve_drv = new MP6513LGJ_minus_Z
     cs = new INA2180A4IDSGR
-    debug = new Connector4Pin
-    debug.footprint = "Package:PinSocket_1x04_P2.54mm_Vertical"
-    debug.mpn = "61300411121"
     valve_connector = new _009296005202906 
     flowmeter_connector = new _009296003202906
     led = new _155124M173200
