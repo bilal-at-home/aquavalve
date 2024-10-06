@@ -1,0 +1,37 @@
+poses:
+  schematic:
+    5821a2b2:
+      mirror_x: false
+      mirror_y: false
+      position:
+        x: 60.0
+        y: -90.0
+      rotation: 0
+    6f1ea16c:
+      mirror_x: false
+      mirror_y: false
+      position:
+        x: 135.0
+        y: 120.0
+      rotation: 0
+    b68a9dc4:
+      mirror_x: false
+      mirror_y: false
+      position:
+        x: 0.0
+        y: 105.0
+      rotation: 0
+    d967fc5e:
+      mirror_x: false
+      mirror_y: false
+      position:
+        x: 195.0
+        y: -30.0
+      rotation: 0
+    fe68828b:
+      mirror_x: false
+      mirror_y: false
+      position:
+        x: -45.0
+        y: 90.0
+      rotation: 0
