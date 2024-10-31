@@ -1,0 +1,11 @@
+component ABM11W_minus_24_period_0000MHZ_minus_7_minus_B1U_minus_T3:
+    # component ABM11W_minus_24_period_0000MHZ_minus_7_minus_B1U_minus_T3
+    footprint = "CRYSTAL-SMD_4P-L2.0-W1.6-BL"
+    lcsc_id = "C1987060"
+    mpn = "ABM11W_minus_24_period_0000MHZ_minus_7_minus_B1U_minus_T3"
+    # pins
+    signal GND ~ pin 2
+    GND ~ pin 4
+    signal _3 ~ pin 3
+    signal _1 ~ pin 1
+

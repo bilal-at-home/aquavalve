@@ -20,7 +20,7 @@ import PTS830GG140SMTRLFS from "PTS830GG140SMTRLFS.ato"
 import _1125_minus_1104G0S116C001 from "_1125_minus_1104G0S116C001.ato"
 import SC32S_minus_7PF20PPM from "SC32S_minus_7PF20PPM.ato"
 import CY7C65632_minus_28LTXC from "CY7C65632_minus_28LTXC.ato"
-
+import ABM11W_minus_24_period_0000MHZ_minus_7_minus_B1U_minus_T3 from "ABM11W_minus_24_period_0000MHZ_minus_7_minus_B1U_minus_T3.ato"
 
 module MCU: 
     power_5v = new Power
@@ -113,17 +113,107 @@ module USBC_PD:
     con2 = new _12402012E212A
     cs_amp = new INA2180A4IDSGR
 
+    #Controller Power 
+    
+
+
 module USB_2:
     hub = new USB2422_slash_MJ
-    power_3v3 = new Power
-    power_3v3.vcc ~ hub.VDD33
-    power_3v3.gnd ~ hub.EP 
-
     #usb_mux1 = new TMUXHS221NKGR
     #usb_mux2 = new TMUXHS221NKGR
     #usb_mux3 = new TMUXHS221NKGR
     #usb_mux4 = new TMUXHS221NKGR
+    power_3v3 = new Power
+    power_3v3.vcc ~ hub.VDD33
+    power_3v3.gnd ~ hub.EP 
+    xtal = new ABM11W_minus_24_period_0000MHZ_minus_7_minus_B1U_minus_T3
+    xtal_c1 = new Capacitor
+    xtal_c2 = new Capacitor
+    xtal_c1.package = "0402"
+    xtal_c2.package = "0402"
+    xtal_c1.value = 6pF +/- 10%
+    xtal_c2.value = 6pF +/- 10%
+    xtal_c1.dielectric = "C0G"
+    xtal_c2.dielectric = "C0G"
+    xtal_r1 = new Resistor
+    xtal_r1.package = "0402"
+    xtal_r1.value = 12kΩ +/- 1% 
+    xtal_r2 = new Resistor
+    xtal_r2.package = "0402"
+    xtal_r2.value = 100 kΩ +/- 10% 
+    xtal_c3 = new Capacitor
+    xtal_c3.package = "0402"
+    xtal_c3.dielectric = "C0G"
+    xtal_c3.value = 0.1uF +/- 10%
+    xtal_r3 = new Resistor
+    xtal_r3.package = "0402"
+    xtal_r3.value = 100 kΩ +/- 10% 
+    dc_cap1 = new Capacitor
+    dc_cap1.package = "0402"
+    dc_cap1.value = 1uF +/- 10%
+    dc_cap2 = new Capacitor
+    dc_cap2.package = "0402"
+    dc_cap2.value = 0.1uF +/- 10%
+    dc_cap3 = new Capacitor
+    dc_cap3.package = "0402"
+    dc_cap3.value = 1uF +/- 10%
+    dc_cap4 = new Capacitor
+    dc_cap4.package = "0402"
+    dc_cap4.value = 0.1uF +/- 10%
+    
+    power_3v3.gnd ~ xtal.GND
+    xtal._1 ~ hub.XTALIN_slash_CLKIN
+    xtal._3 ~ hub.XTALOUT_slash_lparen_CLKIN_EN_rparen
+    xtal._1 ~ xtal_c1.p1
+    xtal_c1.p2 ~ power_3v3.gnd
+    xtal._3 ~ xtal_c2.p1
+    xtal_c2.p2 ~ power_3v3.gnd
+    hub.RESET_N ~ xtal_r2.p1
+    hub.RESET_N ~ xtal_c3.p1
+    xtal_r2.p2 ~ power_3v3.vcc
+    xtal_c3.p2 ~ power_3v3.gnd
+    hub.VDD33 ~ dc_cap1.p1
+    dc_cap1.p2 ~ power_3v3.gnd
+    hub.VDD33 ~ dc_cap2.p1
+    dc_cap2.p2 ~ power_3v3.gnd
+    hub.CRFILT ~ dc_cap3.p1
+    dc_cap3.p2 ~ power_3v3.gnd
+    hub.PLLFILT ~ dc_cap4.p1
+    dc_cap4.p2 ~ power_3v3.gnd
 
+
+    # Indicate local power (Not true)
+    # Indicate port 1 is non-removabel
+    sp_r1 = new Resistor
+    sp_r1.package = "0402"
+    sp_r1.value = 12 kΩ +/- 1% 
+    hub.RBIAS ~ bias_r1.p1
+    bias_r1.p2 ~ power_3v3.gnd
+ 
+    # Indicate local power (Not true)
+    # Indicate port 1 is non-removabel
+    sp_r1 = new Resistor
+    sp_r1.package = "0402"
+    sp_r1.value = 100 kΩ +/- 10% 
+    sp_r1.p1 ~ power_3v3.vcc
+    hub.SUSP_IND_slash_LOCAL_PWR_slash_lparen_NON_REM0_rparen ~ sp_r1.p2
+    
+    sp_r2 = new Resistor
+    sp_r2.package = "0402"
+    sp_r2.value = 100 kΩ +/- 10% 
+    sp_r2.p1 ~ power_3v3.gnd
+    hub.SMBDATA_slash_NON_REM1 ~ sp_r2.p2
+
+    # Enable strap options 
+    cnfg_r2 = new Resistor
+    cnfg_r2.package = "0402"
+    cnfg_r2.value = 100 kΩ +/- 10% 
+    cnfg_r2.p1 ~ power_3v3.vcc
+    hub.SMBCLK_slash_CFG_SEL0 ~ cnfg_r2.p2
+
+    # Connect VBUS_DET directly to VDD33 
+    hub.VBUS_DET ~ power_3v3.vcc
+    
 module Power_conversion:
     ps = new LMR51450SDRRR
 

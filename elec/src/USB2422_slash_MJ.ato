@@ -2,7 +2,7 @@ component USB2422_slash_MJ:
     # component USB2422_slash_MJ
     footprint = "QFN-24_L4.0-W4.0-P0.50-BL-EP2.6"
     lcsc_id = "C633330"
-    mpn = "C633330"
+    mpn = "USB2422_slash_MJ"
     # pins
     signal VDD33 ~ pin 1
     signal USBDM_DN1_slash_PRT_DIS_M1 ~ pin 2
