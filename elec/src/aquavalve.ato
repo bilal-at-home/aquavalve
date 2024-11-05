@@ -113,9 +113,101 @@ module USBC_PD:
     con2 = new _12402012E212A
     cs_amp = new INA2180A4IDSGR
 
-    #Controller Power 
-    
+    #Define Power Domains
+    power3v3 = new Power
+    power20v = new Power
+    powerldo3v3 = new Power
+    power3v3.gnd ~ power20v.gnd
+    powerldo3v3.gnd ~ power20v.gnd
+    signal gnd ~ power3v3.gnd
 
+    #Define Resistor string for ADCIN1
+    adcin1_r1 = new Resistor
+    adcin1_r1.package = "0402"
+    adcin1_r1.value = 10kohm +/- 1%
+    adcin1_r2 = new Resistor
+    adcin1_r2.package = "0402"
+    adc1_division_ratio = 0.33 to 0.35 #0.3 to 0.38 
+    assert adcin1_r2.value/(adcin1_r1.value + adcin1_r2.value) within adc1_division_ratio 
+
+    #Define Resistor string for ADCIN2
+    adcin2_r1 = new Resistor
+    adcin2_r1.package = "0402"
+    adcin2_r1.value = 0 ohm 
+    cntl.ADCIN2 ~ adcin2_r1.p1
+    adcin2_r1.p2 ~ gnd
+
+    #Controller Power 
+    cntl.gnd ~ gnd
+    pwr_c1 = new Capacitor
+    pwr_c1.package = "0402"
+    pwr_c1.dielectric = "X7R"
+    pwr_c1.vale = 10uF +/- 10%
+    pwr_c1.power ~ power3v3 
+    cntl.VIN_3V3 ~ power3v3.vcc
+    
+    pwr_c2 = new Capacitor
+    pwr_c2.package = "0402"
+    pwr_c2.dielectric = "X7R"
+    pwr_c2.vale = 10uF +/- 10%
+    pwr_c2.power ~ powerldo3v3
+    cntl.LDO_3V3 ~ powerldo3v3.vcc
+
+    pwr_c3 = new Capacitor
+    pwr_c3.package = "0402"
+    pwr_c3.dielectric = "X7R"
+    pwr_c3.vale = 4.7uF +/- 10%
+    pwr_c3.power ~ signal ldo1v8
+
+    pwr_c4 = new Capacitor
+    pwr_c4.package = "0402"
+    pwr_c4.dielectric = "X7R"
+    pwr_c4.vale = 1uF +/- 10%
+    pwr_c4.p1 ~ signal vbus1
+    pwr_c4.p2 ~ gnd
+
+    pwr_c5 = new Capacitor
+    pwr_c5.package = "0402"
+    pwr_c5.dielectric = "X7R"
+    pwr_c5.vale = 1uF +/- 10%
+    pwr_c5.p1 ~ signal vbus2
+    pwr_c5.p2 ~ gnd
+
+    pwr_c6 = new Capacitor
+    pwr_c6.package = "0402"
+    pwr_c6.dielectric = "X7R"
+    pwr_c6.vale = 10uF +/- 10%
+    pwr_c6.p1 ~ cntl.PP_HV1
+    pwr_c6.p2 ~ gnd
+
+    pwr_c7 = new Capacitor
+    pwr_c7.package = "0402"
+    pwr_c7.dielectric = "X7R"
+    pwr_c7.vale = 10uF +/- 10%
+    pwr_c7.p1 ~ cntl.PP_HV2
+    pwr_c7.p2 ~ gnd
+
+    pwr_c8 = new Capacitor
+    pwr_c8.package = "0402"
+    pwr_c8.dielectric = "X7R"
+    pwr_c8.vale = 10uF +/- 10%
+    pwr_c8.p1 ~ cntl.PP1_CABLE
+    pwr_c8.p2 ~ gnd
+
+    pwr_c9 = new Capacitor
+    pwr_c9.package = "0402"
+    pwr_c9.dielectric = "X7R"
+    pwr_c9.vale = 10uF +/- 10%
+    pwr_c9.p1 ~ cntl.PP2_CABLE
+    pwr_c9.p2 ~ gnd
+
+    #Connect up System side HV together -> This is for the first version
+    #Eventually this should go through some kind of DC/DC 
+    cntl.PP_HV1 ~ cntl.PP_HV2
+    power20v.vcc ~ cntl.PP_HV1
+    signal sys_20v ~ power20v.vcc
+
+    #
 
 module USB_2:
     hub = new USB2422_slash_MJ
@@ -184,9 +276,9 @@ module USB_2:
 
     # Indicate local power (Not true)
     # Indicate port 1 is non-removabel
-    sp_r1 = new Resistor
-    sp_r1.package = "0402"
-    sp_r1.value = 12 kΩ +/- 1% 
+    bias_r1 = new Resistor
+    bias_r1.package = "0402"
+    bias_r1.value = 12 kΩ +/- 1% 
     hub.RBIAS ~ bias_r1.p1
     bias_r1.p2 ~ power_3v3.gnd
  

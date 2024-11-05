@@ -47,5 +47,3 @@ module TRICOLOR_LED:
     signal R ~ RR.p2
     signal B ~ RB.p2
     signal G ~ RG.p2
-
-    
