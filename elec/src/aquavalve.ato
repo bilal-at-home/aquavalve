@@ -138,7 +138,7 @@ module USBC_PD:
     adcin2_r1.p2 ~ gnd
 
     #Controller Power 
-    cntl.gnd ~ gnd
+    cntl.GND ~ gnd
     pwr_c1 = new Capacitor
     pwr_c1.package = "0402"
     pwr_c1.dielectric = "X7R"
@@ -207,7 +207,57 @@ module USBC_PD:
     power20v.vcc ~ cntl.PP_HV1
     signal sys_20v ~ power20v.vcc
 
-    #
+    #Some more decoupling capacitors
+    cc_c1 = new Capacitor
+    cc_c1.package = "0402"
+    cc_c1.dielectric = "X7R"
+    cc_c1.vale = 100nF +/- 10%
+    cc_c1.p1 ~ cntl.C1_CC1
+    cc_c1.p2 ~ gnd
+    cntl.C1_CC1 ~ con1.CC1
+
+    cc_c2 = new Capacitor
+    cc_c2.package = "0402"
+    cc_c2.dielectric = "X7R"
+    cc_c2.vale = 100nF +/- 10%
+    cc_c2.p1 ~ cntl.C1_CC2
+    cc_c2.p2 ~ gnd
+    cntl.C1_CC2 ~ con1.CC2
+
+    cc_c3 = new Capacitor
+    cc_c3.package = "0402"
+    cc_c3.dielectric = "X7R"
+    cc_c3.vale = 100nF +/- 10%
+    cc_c3.p1 ~ cntl.C2_CC1
+    cc_c3.p2 ~ gnd
+    cntl.C2_CC1 ~ con2.CC1
+
+    cc_c4 = new Capacitor
+    cc_c4.package = "0402"
+    cc_c4.dielectric = "X7R"
+    cc_c4.vale = 100nF +/- 10%
+    cc_c4.p1 ~ cntl.C2_CC2
+    cc_c4.p2 ~ gnd
+    cntl.C2_CC2 ~ con2.CC2
+
+    #Connect HRESET to GND
+    cntl.HRESET ~ gnd
+
+    #Connect unconnected pins
+    gpio_r1 = new Resistor
+    gpio_r1.package = "0402"
+    gpio_r1.value = 1000000 ohm 
+    gpio_r1.p1 ~ cntl.GPIO1 
+    gpio_r1.p2 ~ gnd
+
+    #Connect the remainder of the connector pins
+    con1.VBUS ~ cntl.VBUS1
+    con1.GND ~ gnd
+
+    con2.VBUS ~ cntl.VBUS2
+    con2.GND ~ gnd
+
+
 
 module USB_2:
     hub = new USB2422_slash_MJ

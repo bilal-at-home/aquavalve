@@ -12,12 +12,12 @@ component _12402012E212A:
     signal SBU2 ~ pin B8
     signal D_minus ~ pin B7
     signal D_plus ~ pin B6
-    signal CC1 ~ pin B5
+    signal CC2 ~ pin B5
     VBUS ~ pin B4A9
     signal GND ~ pin B1A12
     signal SBU1 ~ pin A8
     D_minus ~ pin A7
     D_plus ~ pin A6
-    CC1 ~ pin A5
+    signal CC1 ~ pin A5
     GND ~ pin A1B12
 
